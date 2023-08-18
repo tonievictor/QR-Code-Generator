@@ -25,16 +25,15 @@ const onGenerateSubmit = (e) => {
 
       setTimeout(() => {
         const saveUrl = qrcode.querySelector("img").src;
+
         createSaveBtn(saveUrl);
       }, 50);
     }, 2000);
   }
-
-  console.log(url, size);
 };
 
 const generateQRCode = (url, size) => {
-  const qrcode = new QRCode("qrcode", {
+  const qrc = new QRCode("qrcode", {
     text: url,
     width: size,
     height: size,
@@ -63,15 +62,6 @@ const clearUI = () => {
     saveBtn.remove();
   }
 };
-
-// const createSaveBtn = (saveUrl) => {
-//   const link = document.createElement("a");
-//   link.id = "save-link";
-//   link.classList = link.href = saveUrl;
-//   link.download = "qrcode";
-//   link.innerHTML = "Saved Image";
-//   document.getElementById("generated").appendChild(link);
-// };
 
 const createSaveBtn = (saveUrl) => {
   const link = document.createElement("a");
